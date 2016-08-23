@@ -1,0 +1,22 @@
+{
+  "name": "generator-hyfe",
+  "version": "1.0.0",
+  "description": "海云数据前端项目脚手架",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "author": "baizhanning",
+  "license": "ISC",
+  "dependencies": {
+    "path": "^0.12.7",
+    "yeoman-generator": "^0.24.1"
+  },
+  "files": [
+    "generators/app",
+    "generators/router"
+  ]
+}
