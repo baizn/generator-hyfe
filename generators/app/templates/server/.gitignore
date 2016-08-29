@@ -1,0 +1,5 @@
+*.swp
+node_modules
+dist
+logs/error-*.log
+logs/out-*.log
