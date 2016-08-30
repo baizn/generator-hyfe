@@ -4,8 +4,8 @@
   "description": "海云数据前端项目",
   "scripts": {
     "start": "cross-env NODE_PATH=./app concurrently --kill-others \"nodemon app/server\" \"node webpack.dev.js\" \"gulp css:watch\"",
-    "webpack": "webpack --progress --color",
-    "build": "rimraf dist/ && npm run webpack && gulp css:build"
+    "webpack": "cross-env NODE_ENV=production webpack --progress --color",
+    "build": "npm run webpack && gulp css:build"
   },
   "engines": {
     "node": "5.6.0",
