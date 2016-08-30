@@ -9,22 +9,22 @@ module.exports = [
         //记住用户喜好
         store: true
     }, 
-    {
-        type: 'checkbox',
-        message: '项目类型: ',
-        name: 'projectType',
-        choices: [
-            {
-                value: 'client',
-                name: 'React客户端渲染',
-                checked: true
-            },
-            {
-                value: 'server',
-                name: 'React服务端渲染'
-            }
-        ]
-    },
+    // {
+    //     type: 'checkbox',
+    //     message: '项目目录结构: ',
+    //     name: 'projectType',
+    //     choices: [
+    //         {
+    //             value: 'node',
+    //             name: 'nodejs项目目录',
+    //             checked: true
+    //         },
+    //         {
+    //             value: 'server',
+    //             name: 'React服务端渲染'
+    //         }
+    //     ]
+    // },
     // {
     //     type: 'rawlist',
     //     name: 'rawlist',

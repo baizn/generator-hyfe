@@ -70,30 +70,34 @@ module.exports = generator.Base.extend({
             console.log('templatePath=', this.templatePath())
             console.log('destinationPath=', this.destinationPath())
             if(!this.params.create) return
-            if(this.params.projectType[0] === 'server') {
-                this.fs.copyTpl(
-                    this.templatePath('server'),
-                    this.destinationPath()
-                ) 
-            } else {
-                this.fs.copyTpl(
-                    this.templatePath('client'),
-                    this.destinationPath()
-                ) 
-            } 
+            this.fs.copyTpl(
+                this.templatePath('server'),
+                this.destinationPath()
+            ) 
+            // if(this.params.projectType[0] === 'server') {
+            //     this.fs.copyTpl(
+            //         this.templatePath('server'),
+            //         this.destinationPath()
+            //     ) 
+            // } else {
+            //     this.fs.copyTpl(
+            //         this.templatePath('client'),
+            //         this.destinationPath()
+            //     ) 
+            // } 
         }
         
     },
     method1: function() {
-        var type = this.params.projectType[0]
-        var packageFilePath = ''
-        if(type === 'server') {
-            packageFilePath = this.templatePath('server/package.json')
-            //pkg = this.fs.readJSON(this.templatePath('server/package.json'), {})
-        } else {
-            packageFilePath = this.templatePath('client/package.json')
-            //pkg = this.fs.readJSON(this.templatePath('client/package.json'), {})
-        }
+       // var type = this.params.projectType[0]
+        var packageFilePath = this.templatePath('node-server/package.json')
+        // if(type === 'server') {
+        //     packageFilePath = this.templatePath('server/package.json')
+        //     //pkg = this.fs.readJSON(this.templatePath('server/package.json'), {})
+        // } else {
+        //     packageFilePath = this.templatePath('client/package.json')
+        //     //pkg = this.fs.readJSON(this.templatePath('client/package.json'), {})
+        // }
         console.log('method1 called', this.params.keywords)
         var pkg = this.fs.readJSON(packageFilePath, {})
         pkg.name = pkg.name || this.params.name
