@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/baizn/generator-hyfe"
+    "url": ""
   },
   "license": "MIT",
   "dependencies": {
@@ -74,5 +74,7 @@
     "rewire-webpack": "^1.0.0",
     "style-loader": "^0.13.1",
     "webpack-dev-server": "^1.9.0"
-  }
+  },
+  "author": "",
+  "keywords": []
 }

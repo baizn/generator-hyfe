@@ -4,7 +4,9 @@ $text_color: #232323;
 
 body {
     color: $text_color;
-    background: url(../img/bg.png);
+    /*有图片时候导致yo失败*/
+    background: #333;
+    /*background: url(../img/bg.jpg);*/
 }
 
 

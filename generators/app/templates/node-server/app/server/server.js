@@ -89,7 +89,7 @@ app.use((req, res, next)=> {
       let reqUrl = location.pathname + location.search
 
       reduxPromise().then(()=> {
-        let initialState = encodeURI(JSON.stringify(store.getState()))
+        let initialState = JSON.stringify(store.getState())
         let html = ReactDOMServer.renderToString(
           <Provider store={store}>
             { <RouterContext {...renderProps}/> }
@@ -126,9 +126,6 @@ function renderFullPage(renderedContent, initialState, surls, curls) {
         <link rel="stylesheet" href="${curls}"/>
       </head>
       <body>
-        <!--[if lt IE 9]>
-          <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
         <div class="top-box" id="container">${renderedContent}</div>
         <script>
           window.__INITIAL_STATE__ = ${initialState}

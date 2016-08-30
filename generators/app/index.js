@@ -49,12 +49,7 @@ module.exports = generator.Base.extend({
         questions: function () {
             var next = this.async()
             return this.prompt(prompts).then(function (answers) {
-                this.log('app name', answers.name)
-                this.log('cool feature', answers.create)
-                this.log('项目类型', answers.name)
-                console.log('params=' + JSON.stringify(answers, null, ' '))
                 this.params = answers//JSON.stringify(answers, null, ' ')
-                this.log(this.destinationRoot())
                 if(!answers.create) return
                 var rootPath = this.destinationRoot()
                 if(path.basename(rootPath) !== answers.name) {
@@ -67,12 +62,13 @@ module.exports = generator.Base.extend({
 
     writing: {
         copyProject: function () {
-            console.log('templatePath=', this.templatePath())
-            console.log('destinationPath=', this.destinationPath())
             if(!this.params.create) return
             this.fs.copyTpl(
-                this.templatePath('server'),
-                this.destinationPath()
+                this.templatePath('node-server'),
+                this.destinationPath(),
+                {
+                    stat: true
+                }
             ) 
             // if(this.params.projectType[0] === 'server') {
             //     this.fs.copyTpl(
@@ -98,7 +94,7 @@ module.exports = generator.Base.extend({
         //     packageFilePath = this.templatePath('client/package.json')
         //     //pkg = this.fs.readJSON(this.templatePath('client/package.json'), {})
         // }
-        console.log('method1 called', this.params.keywords)
+
         var pkg = this.fs.readJSON(packageFilePath, {})
         pkg.name = pkg.name || this.params.name
         pkg.author = pkg.author || this.params.author
@@ -107,14 +103,13 @@ module.exports = generator.Base.extend({
             "type": "git",
             "url": this.params.gitUrl
         }
-        console.log(pkg.keywords,this.params.keywords);
+
         pkg.keywords = this._merge(pkg.keywords, this.params.keywords.split(/\s+/))
         
         this.fs.writeJSON(packageFilePath, pkg)
     },
 
     conflicts: function(file) {
-        console.log('conflicts', file)
         //generator.Conflicter(file, 'force')
         //generator.conflicter.force = true
         // generator.config.set({

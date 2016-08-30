@@ -13,7 +13,7 @@ import _ from 'lodash'
 let initialState = {}
 if (window.__INITIAL_STATE__) {
   try {
-    let plain = JSON.parse(unEncodeURI(__INITIAL_STATE__))
+    let plain = JSON.parse(__INITIAL_STATE__)
     console.log('initialState=' + plain)
     _.each(plain, (val, key)=> {
       initialState[key] = Immutable.fromJS(val)
