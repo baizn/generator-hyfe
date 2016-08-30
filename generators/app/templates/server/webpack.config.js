@@ -5,7 +5,7 @@ var CleanPlugin = require('clean-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 var DEBUG = !(process.env.NODE_ENV === 'production')
-console.log('debugger=' + DEBUG)
+
 var env = {
   NODE_ENV: process.env.NODE_ENV,
   API_BASE_URL: process.env.API_BASE_URL
