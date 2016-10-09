@@ -2,9 +2,9 @@ import config from '../../../config'
 import actionType from '../constants/actionType'
 import requestURL from '../constants/requestURL'
 const { LOADED_ITEMS, LOADED_ITEMS_DETAIL, 
-  LOADED_ITEM_USER, LOAD_CHART } = actionType
+  LOADED_ITEM_USER, LOAD_CHART, LOAD_TEST } = actionType
 const { LOAD_DEFAULT_CHART_URL, LOAD_ITEMS_URL, 
-  LOAD_ITEMDETAIL_URL, LOAD_USER_URL } = requestURL
+  LOAD_ITEMDETAIL_URL, LOAD_USER_URL, LOAD_TEST_URL } = requestURL
 
 const { CALL_API, CHAIN_API } = config
 
@@ -18,13 +18,23 @@ export function loadDefaultChartData() {
   }
 }
 
-export function loadItems(params) {
+export function loadTestData() {
+  return {
+    [CALL_API]: {
+      method: 'get',
+      url: LOAD_TEST_URL,
+      successType: LOAD_TEST
+    }
+  }
+}
+
+export function loadItems() {
   return {
     [CALL_API]: {
       method: 'get',
       url: LOAD_ITEMS_URL,
       successType: LOADED_ITEMS,
-      query: params
+      //query: params
     }
   }
 }

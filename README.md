@@ -42,3 +42,18 @@ $ yo hyfe [--force]
 - babel
 - superagent
 - immutable
+
+### 更新记录
+
+#### V0.0.9
+
+服务端渲染支持多个组件同时加载多个action的情况。
+
+#### V0.0.8
+- 开发环境
+  开发环境使用CommonsChunkPlugin插件抽取公用的文件。开发时候支持热替换。
+
+- 线上环境
+  线上部署时使用DllPlugin插件打包所有公用文件，在webpack.config.js中通过DllReferencePlugin插件动态引入。
+  部署到线上以后不支持热替换。
+

@@ -159,13 +159,6 @@ export function getItem (id) {
   return obj
 }
 
-export function getUser (id) {
-  return {
-    id,
-    name: `user name is - ${id}`
-  }
-}
-
 export function getChartData() {
   return {
     xData: ['1月', '2月', '3月', '4月', '5月'],

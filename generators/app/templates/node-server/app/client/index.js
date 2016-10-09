@@ -11,14 +11,16 @@ import Immutable from 'immutable'
 import _ from 'lodash'
 
 let initialState = {}
+console.log('initialState1=' + JSON.stringify(window.__INITIAL_STATE__))
 if (window.__INITIAL_STATE__) {
   try {
-    let plain = JSON.parse(__INITIAL_STATE__)
+    let plain = JSON.parse(JSON.stringify(window.__INITIAL_STATE__))
     console.log('initialState=' + plain)
     _.each(plain, (val, key)=> {
       initialState[key] = Immutable.fromJS(val)
     })
   } catch (e) {
+    console.log('JSON.parse faild')
   }
 }
 
@@ -28,4 +30,4 @@ ReactDOM.render((
   <Provider store={store}>
     { createRoutes(browserHistory) }
   </Provider>
-), document.getElementById('root'))
+), document.getElementById('container'))
